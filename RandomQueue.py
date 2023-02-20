@@ -13,7 +13,20 @@ class RandomQueue(ArrayQueue):
             You can call the method of the parent class using super(). e.g.
             super().remove()
         '''
-        super().remove()  
+        randomIndex = random.randint(0, self.n)
+        tail = self.a[self.n - 1]
+        self.a[self.n -1] = self.a[randomIndex]
+        self.a[randomIndex] = tail 
+        super().remove()
 
 
-print(16 % 7)
+
+array = RandomQueue()
+array.a = array.new_array(4)
+array.add(2)
+array.add(1)
+array.add(4)
+array.add(6)
+print(array)
+array.remove()
+print(array)
