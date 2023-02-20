@@ -16,16 +16,16 @@ class ArrayQueue(Queue):
             Resize the array
         '''
         newArray = None
-        if len(self.a) > 3*self.n:
+        if len(self.a) >= 3*self.n:
             newArray = self.new_array(
                 max(int(len(self.a) /2), 1))
         else:
             newArray = self.new_array(max(1, len(self.a) * 2))
         for k in range(self.n):
             newArray[k] = self.a[k]
-        
+            print(newArray)
         self.a = newArray
-       
+        self.j = 0
 
     def add(self, x: object):
         '''
@@ -33,6 +33,7 @@ class ArrayQueue(Queue):
             and add element x in position i
         '''
         if len(self.a) == self.n:
+            print('yes')
             self.resize()
         self.a[(self.j + self.n) % len(self.a)] = x
         self.n = self.n + 1
@@ -77,10 +78,13 @@ class ArrayQueue(Queue):
         return x
 
 array = ArrayQueue()
-array.a = array.new_array(4)
-array.add(1)
-array.add(2)
-array.add(3)
-array.add(4)
-array.add(4)
+array.a = array.new_array(6)
+array.j = 2
+array.add("a")
+array.add("b")
+array.add("c")
+array.add("e")
+array.add("d")
+array.add("f")
+array.add("x")
 print(array.a)
