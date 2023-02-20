@@ -22,9 +22,9 @@ class ArrayQueue(Queue):
         else:
             newArray = self.new_array(max(1, len(self.a) * 2))
         for k in range(self.n):
-            newArray[k] = self.a[k]
-            print(newArray)
+            newArray[k] = self.a[(self.j + k) % len(self.a)]
         self.a = newArray
+        
         self.j = 0
 
     def add(self, x: object):
@@ -37,7 +37,7 @@ class ArrayQueue(Queue):
             self.resize()
         self.a[(self.j + self.n) % len(self.a)] = x
         self.n = self.n + 1
-        # self.a = np.insert(self.a, i, x)
+        print('n = ', self.n, self.a)
 
 
     def remove(self) -> object:
@@ -46,13 +46,18 @@ class ArrayQueue(Queue):
         '''
         if self.n <= 0:
             raise Exception
-        x = self.a[self.j]
-        
-        self.a[(self.j + self.n -1) % len(self.a)] = 0
-
         if len(self.a) > 3 * self.n:
             self.resize()
+        x = self.a[self.j]
+        
+        self.a[(self.j) % len(self.a)] = 0
+
+        print(len(self.a), self.n)
         self.n = self.n - 1
+        
+        print('n = ', self.n, self.a)
+
+        self.j = self.j + 1
         return x
 
     def size(self):
@@ -87,4 +92,9 @@ array.add("e")
 array.add("d")
 array.add("f")
 array.add("x")
+array.remove()
+array.remove()
+array.remove()
+array.remove()
+array.resize()
 print(array.a)
