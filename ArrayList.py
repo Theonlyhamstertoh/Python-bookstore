@@ -48,7 +48,7 @@ class ArrayList(List):
             i: Index that is integer non negative and at most n
         '''
         if i < 0 or i >= self.n:
-            raise Exception
+            raise IndexError("out of range")
         return self.a[(self.j + i) % len(self.a)]
  
  
@@ -130,9 +130,10 @@ class ArrayList(List):
         toRemoveIndex = (self.j + i) % len(self.a)
         x = self.a[toRemoveIndex]
         if i < self.n/2:
-          print("remove index", toRemoveIndex, self.a[toRemoveIndex])
-          for k in range(self.j + i , self.j, -1 ):
-            print('ran k=', k)
+          print("remove index",  self.a[toRemoveIndex], "j", self.j)
+          for k in range(i , 0 -1 , -1 ): 
+            print(k, (k) % len(self.a), (self.j + k) % len(self.a))
+            # print('ran k=', k, "--start", self.j + i, "--end", self.j)
             currentIndex = (self.j + k) % len(self.a)
             prevIndex = (self.j + k - 1) % len(self.a)
             print("current:", self.a[currentIndex], currentIndex, "prev", self.a[prevIndex], prevIndex)
@@ -140,7 +141,7 @@ class ArrayList(List):
             # self.a[currentIndex] = 0
 
  
-          self.j = self.j + 1
+          self.j = (self.j + 1) % len(self.a)
           # if self.j == -1: self.j = len(self.a ) - 1 
  
         elif i >= self.n/2:
@@ -193,30 +194,38 @@ class ArrayList(List):
  
 array = ArrayList()
 array.a = array.new_array(6)
-# array.set(0, "A")
-# array.set(1, "B")
-# array.set(2, "C")
-# array.set(3, "d")
-# array.set(4, "e")
-# array.set(5, "f")
-# array.set(6, "g")
-# array.set(7, "h")
+array.add(0, "A")
+array.add(1, "B")
+array.add(2, "C")
+array.add(3, "d")
+array.add(4, "e")
+array.add(5, "f")
+array.add(6, "g")
+array.add(7, "h")
+print("array", array.a)
+array.remove(3)
+print("array", array.a)
+array.remove(4)
+print("array", array.a)
+array.remove(1)
+print(array.j)
+print(array.a)
+
 # array.j = 4
-# print(array.a)
 # print(array.remove(0))
 # print(array.a)
 
-array.j = 2
-array.add(0, "a")
-array.add(1, "b")
-array.add(2, "c")
-array.add(3, "d")
-array.add(2, "e")
-array.add(2, "f")
-array.add(0, "A")
-array.remove(5)
-array.remove(2)
-print(array.a)
+# array.j = 2
+# array.add(0, "a")
+# array.add(1, "b")
+# array.add(2, "c")
+# array.add(3, "d")
+# array.add(2, "e")
+# array.add(2, "f")
+# array.add(0, "A")
+# array.remove(5)
+# array.remove(2)
+# print(array.a)
 
 # print(array.a, "(set) j:"+ str(array.j))
 # array.add(3, "D")
