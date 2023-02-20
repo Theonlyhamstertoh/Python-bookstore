@@ -126,19 +126,18 @@ class ArrayList(List):
  
     def remove(self, i: int) -> object:
         if self.n <= 0:
-            raise Exception("no more elements in array")
+            raise IndexError("no more elements in array")
         toRemoveIndex = (self.j + i) % len(self.a)
         x = self.a[toRemoveIndex]
         if i < self.n/2:
           print("remove index", toRemoveIndex, self.a[toRemoveIndex])
-          print(self.j + i, self.j+1)
-          for k in range(self.j, self.j + i + 1):
-            print('ran', k, self.j, self.j + i + 1)
+          for k in range(self.j + i , self.j, -1 ):
+            print('ran k=', k)
             currentIndex = (self.j + k) % len(self.a)
             prevIndex = (self.j + k - 1) % len(self.a)
-            print(currentIndex, prevIndex)
-            # self.a[currentIndex] = self.a[prevIndex]
-            self.a[currentIndex] = 0
+            print("current:", self.a[currentIndex], currentIndex, "prev", self.a[prevIndex], prevIndex)
+            self.a[currentIndex] = self.a[prevIndex]
+            # self.a[currentIndex] = 0
 
  
           self.j = self.j + 1
@@ -193,19 +192,32 @@ class ArrayList(List):
 # a = np.zeros(3, object)
  
 array = ArrayList()
-array.a = array.new_array(8)
-array.set(0, "A")
-array.set(1, "B")
-array.set(2, "C")
-array.set(3, "d")
-array.set(4, "e")
-array.set(5, "f")
-array.set(6, "g")
-array.set(7, "h")
+array.a = array.new_array(6)
+# array.set(0, "A")
+# array.set(1, "B")
+# array.set(2, "C")
+# array.set(3, "d")
+# array.set(4, "e")
+# array.set(5, "f")
+# array.set(6, "g")
+# array.set(7, "h")
 # array.j = 4
+# print(array.a)
+# print(array.remove(0))
+# print(array.a)
+
+array.j = 2
+array.add(0, "a")
+array.add(1, "b")
+array.add(2, "c")
+array.add(3, "d")
+array.add(2, "e")
+array.add(2, "f")
+array.add(0, "A")
+array.remove(5)
+array.remove(2)
 print(array.a)
-print(array.remove(0))
-print(array.a)
+
 # print(array.a, "(set) j:"+ str(array.j))
 # array.add(3, "D")
 # print(array.a)
