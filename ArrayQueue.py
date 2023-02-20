@@ -45,7 +45,7 @@ class ArrayQueue(Queue):
             remove the first element in the queue
         '''
         if self.n <= 0:
-            raise Exception
+            raise IndexError("no more n")
         if len(self.a) > 3 * self.n:
             self.resize()
         x = self.a[self.j]
