@@ -31,7 +31,7 @@ class DLList(List):
 
         return p;
     def get(self, i) -> object:
-        if i < 0 or i >= self.n :
+        if i < 0 or i > self.n : # NOTE MADE CHANGES TO SIGN >= to >
             raise IndexError('out of range')
         return self.get_node(i).x
 
@@ -87,7 +87,7 @@ class DLList(List):
         
 
     def remove(self, i: int):
-        if i < 0 or i >= self.n:  raise IndexError()
+        if i < 0 or i >= self.n:  raise IndexError() # NOTE MADE CHANGES TO >= -> >
         removeNode = self.get_node(i)
         self._remove(removeNode)
         
