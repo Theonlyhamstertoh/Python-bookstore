@@ -33,11 +33,9 @@ class ArrayQueue(Queue):
             and add element x in position i
         '''
         if len(self.a) == self.n:
-            print('yes')
             self.resize()
         self.a[(self.j + self.n) % len(self.a)] = x
         self.n = self.n + 1
-        print('n = ', self.n, self.a)
 
 
     def remove(self) -> object:
@@ -52,10 +50,8 @@ class ArrayQueue(Queue):
         
         self.a[(self.j) % len(self.a)] = 0
 
-        print(len(self.a), self.n)
         self.n = self.n - 1
         
-        print('n = ', self.n, self.a)
 
         self.j = self.j + 1
         return x
@@ -82,19 +78,19 @@ class ArrayQueue(Queue):
             raise StopIteration()
         return x
 
-array = ArrayQueue()
-array.a = array.new_array(6)
-array.j = 2
-array.add("a")
-array.add("b")
-array.add("c")
-array.add("e")
-array.add("d")
-array.add("f")
-array.add("x")
-array.remove()
-array.remove()
-array.remove()
-array.remove()
-array.resize()
-print(array.a)
+# array = ArrayQueue()
+# array.a = array.new_array(6)
+# array.j = 2
+# array.add("a")
+# array.add("b")
+# array.add("c")
+# array.add("e")
+# array.add("d")
+# array.add("f")
+# array.add("x")
+# array.remove()
+# array.remove()
+# array.remove()
+# array.remove()
+# array.resize()
+# print(array.a)

@@ -13,9 +13,19 @@ class Calculator:
     def set_variable(self, k: str, v: float):
         self.dict.add(k, v)
 
-    def matched_expression(self, s: str) -> bool:
-        # todo
-        pass
+    def matched_expression(self, expression: str) -> bool:
+        parenthesis = []
+        for char in expression:
+            # print(char)
+            if char == "(":
+                parenthesis.append("(")
+                # print(parenthesis)
+            elif char == ")":
+                if len(parenthesis) == 0: return False
+                parenthesis.pop()
+        if len(parenthesis) > 0: return False
+        else: return True
+        
 
     def build_parse_tree(self, exp: str) -> str:
         # todo
@@ -29,3 +39,7 @@ class Calculator:
     def evaluate(self, exp):
         parseTree = self.build_parse_tree(exp)
         return self._evaluate(parseTree.r)
+
+
+calc = Calculator()
+print(calc.matched_expression("a+(b*c+d/(a-c)))z"))

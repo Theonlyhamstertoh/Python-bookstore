@@ -36,7 +36,6 @@ class ArrayList(List):
         for k in range(self.n):
             newArray[k] = self.a[(self.j + k) % len(self.a)]
         
-        print(newArray, "new array")
         self.j = 0
         self.a = newArray
         # self.a = np.concatenate(((self.a, self.new_array(len(self.a)))))
@@ -130,13 +129,13 @@ class ArrayList(List):
         toRemoveIndex = (self.j + i) % len(self.a)
         x = self.a[toRemoveIndex]
         if i < self.n/2:
-          print("remove index",  self.a[toRemoveIndex], "j", self.j)
+        #   print("remove index",  self.a[toRemoveIndex], "j", self.j)
           for k in range(i , 0 -1 , -1 ): 
-            print(k, (k) % len(self.a), (self.j + k) % len(self.a))
+            # print(k, (k) % len(self.a), (self.j + k) % len(self.a))
             # print('ran k=', k, "--start", self.j + i, "--end", self.j)
             currentIndex = (self.j + k) % len(self.a)
             prevIndex = (self.j + k - 1) % len(self.a)
-            print("current:", self.a[currentIndex], currentIndex, "prev", self.a[prevIndex], prevIndex)
+            # print("current:", self.a[currentIndex], currentIndex, "prev", self.a[prevIndex], prevIndex)
             self.a[currentIndex] = self.a[prevIndex]
             # self.a[currentIndex] = 0
 
@@ -190,26 +189,32 @@ class ArrayList(List):
             raise StopIteration()
         return x
  
-# a = np.zeros(3, object)
+# # a = np.zeros(3, object)
  
 array = ArrayList()
-array.a = array.new_array(6)
+array.a = array.new_array(8)
+array.j = 1
 array.add(0, "A")
 array.add(1, "B")
 array.add(2, "C")
-array.add(3, "d")
-array.add(4, "e")
+array.add(3, "D")
+array.add(4, "E")
+array.add(5, "F")
+
+# i = 6
+array.add(6, "G")
 array.add(5, "f")
-array.add(6, "g")
-array.add(7, "h")
+array.add(2, "c")
+print(array.remove(6))
+print(array.j % len(array.a))
 print("array", array.a)
-array.remove(3)
-print("array", array.a)
-array.remove(4)
-print("array", array.a)
-array.remove(1)
-print(array.j)
-print(array.a)
+print(array.get(6))
+# print("array", array.a)
+# array.remove(4)
+# print("array", array.a)
+# array.remove(1)
+# print(array.j)
+# print(array.a)
 
 # array.j = 4
 # print(array.remove(0))

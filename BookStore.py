@@ -10,7 +10,6 @@ import BinaryHeap
 import AdjacencyList
 import time
 
-
 class BookStore:
     '''
     BookStore: It simulates a book system such as Amazon. It allows  searching,
@@ -86,14 +85,31 @@ class BookStore:
             elapsed_time = time.time() - start_time
             print(f"Added to shopping cart {s} \n{elapsed_time} seconds")
 
-    def searchBookByInfix(self, infix: str):
+    def searchBookByInfix(self, infix: str, cnt: int):
         '''
         searchBookByInfix: Search all the books that contains infix
         input: 
             infix: A string    
+            cnt: integer
         '''
         start_time = time.time()
         # todo
+
+        catalog = ArrayList.ArrayList()
+
+        # print all until 15 total counts, not 15 steps
+        catalog = ArrayList.ArrayList()
+        for book in self.bookCatalog:
+            if infix in book.title:
+                catalog.append(book)
+            if catalog.size() == 15:
+                break
+        
+        for book in catalog:
+            print(book)
+
+
+
         elapsed_time = time.time() - start_time
         print(f"searchBookByInfix Completed in {elapsed_time} seconds")
 
@@ -106,3 +122,4 @@ class BookStore:
             u = self.shoppingCart.remove()
             elapsed_time = time.time() - start_time
             print(f"removeFromShoppingCart {u} Completed in {elapsed_time} seconds")
+

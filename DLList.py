@@ -16,6 +16,19 @@ class DLList(List):
         self.n = 0
 
     def get_node(self, i: int) -> Node:
+        if i < 0 or i >= self.n:
+            raise Exception
+        if i < self.n/2:
+            p = self.dummy.next
+            for index in range(i):
+                p = p.next
+            return p
+        elif i > self.n/2:x `gffd,`
+            p = self.dummy
+            for index in range(i):
+                p = p.prev
+            return p
+            # if in first half, start at the head and move forward
         # todo
         pass
 

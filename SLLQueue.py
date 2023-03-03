@@ -14,13 +14,28 @@ class SLLQueue(Queue):
         self.n = 0
 
     def add(self, x: object):
-        # todo
-        pass
+        newNode = self.Node(x)
+        if self.n ==0:
+            self.head = newNode
+        else:
+            self.tail.next = newNode
+        self.tail = newNode
+        self.n = self.n + 1
+        return True
 
     def remove(self) -> object:
-        # todo
-        pass
-
+        
+        
+        if self.n == 0:
+            self.tail = self.head = None
+            raise IndexError('Queue is empty. There is nothing to be removed')
+        removedNode = self.head
+        if self.n == 1:
+            self.tail = self.head = None
+        elif self.n > 1:
+            self.head = self.head.next
+        self.n = self.n -1    
+        return removedNode.x
     def size(self) -> int:
         return self.n
 
@@ -45,3 +60,25 @@ class SLLQueue(Queue):
         else:
             raise StopIteration()
         return x
+
+# list = SLLQueue()
+# list.add(1)
+# list.add(2)
+# list.add(3)
+# list.add(4)
+# list.add(5)
+
+# # list.remove()
+# print(list)
+# list.remove()
+# print(list)
+# list.remove()
+# print(list)
+# list.remove()
+# print(list)
+# list.remove()
+# print(list)
+# list.remove()
+# print(list)
+# list.remove()
+# print(list)

@@ -13,13 +13,35 @@ class SLLStack(Stack):
         self.tail = None
         self.n = 0
 
+
     def push(self, x: object):
-        # todo
-        pass
+        newNode = self.Node(x)
+        newNode.next = self.head
+        self.head = newNode;
+        
+        if self.n == 0:
+            self.tail = self.head
+        self.n = self.n+ 1
+            
+        
 
     def pop(self) -> object:
-        # todo
-        pass
+        if self.n == 0:
+            self.head = self.tail = None
+            self.n = 0
+            
+            raise IndexError('The stack is empty; there is nothing to remove')
+        
+        removedNode = self.head
+        if self.n == 1:
+            self.head = None;
+            self.tail = None;
+            self.n = 0;
+        elif self.n > 1:
+            self.head = self.head.next
+            self.n = self.n -1
+        return removedNode.x
+        
 
     def size(self) -> int:
         return self.n

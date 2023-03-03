@@ -60,7 +60,7 @@ class ArrayStack(Stack, List):
         
         for k in range(self.n -1, i - 1, -1):
             self.a[k + 1] = self.a[k]
-        print("index--", i, "add", x, "--at", self.a[i] )
+        # print("index--", i, "add", x, "--at", self.a[i] )
         self.a[i] = x
 
         self.n = self.n + 1
@@ -73,7 +73,7 @@ class ArrayStack(Stack, List):
         '''
         if i < 0 or i >= len(self.a): raise IndexError()
         x = self.a[i]
-        print(i, "remove", x)
+        # print(i, "remove", x)
         for k in range(i, self.n):
             self.a[k] = self.a[k + 1]
         
@@ -131,27 +131,27 @@ class ArrayStack(Stack, List):
 
 
 
-array = ArrayStack()
-array.a = array.new_array(6)
-array.set(0,1)
-array.set(1,2)
-array.add(2, "a")
-print(array.a)
-array.add(3, "b")
-print(array.a)
-array.add(1, "c")
-print(array.a)
-array.add(2, "d")
-print(array.a)
-array.push("f")
-print(array.a)
+# array = ArrayStack()
+# array.a = array.new_array(6)
+# array.set(0,1)
+# array.set(1,2)
+# array.add(2, "a")
 # print(array.a)
-array.remove(4)
-print(array.a)
-array.remove(0)
-array.remove(0)
-array.remove(0)
-array.remove(0)
-array.remove(0)
-array.remove(0)
-print(array.a)
+# array.add(3, "b")
+# print(array.a)
+# array.add(1, "c")
+# print(array.a)
+# array.add(2, "d")
+# print(array.a)
+# array.push("f")
+# print(array.a)
+# # print(array.a)
+# array.remove(4)
+# print(array.a)
+# array.remove(0)
+# array.remove(0)
+# array.remove(0)
+# array.remove(0)
+# array.remove(0)
+# array.remove(0)
+# print(array.a)
