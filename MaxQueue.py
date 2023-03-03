@@ -4,7 +4,8 @@ from DLLDeque import DLLDeque
 
 class MaxQueue(SLLQueue):
     def __init__(self):
-        SLLQueue.__init__(self)
+        super().__init__()
+        # self.queue = SLLQueue()
         self.max_deque = DLLDeque()  # NOTE: DLLDeque implements the Deque interface but also inherits all methods from DLList 
 
     def add(self, x : object):
@@ -12,13 +13,31 @@ class MaxQueue(SLLQueue):
       adds an element to the end of this max queue
       INPUT: x the element to add
       """
-      pass
+      super().add(x)
+      
+      front = self.max_deque.dummy.next
+      print(self.max_deque.n)
+      if self.max_deque.n == 0:
+        self.max_deque.add_first(x)
+        print("I AM RAN")
+      elif front.x < x:
+        self.max_deque.removeAll()
+        self.max_deque.add_first(x)
+      elif front.x > x:
+        prevNode =self.max_deque.get_node(self.n - 1) 
+        print(type(prevNode))
+        if x > prevNode.x:
+          self.max_deque.remove_last()
+        self.max_deque.add_last(x)
+      # self.queue.add(x)
+      # print(super().add)
+      # self.max_deque.add()
 
     def remove(self) -> object:
       """
       removes and returns the element at the head of the max queue
       """
-      pass
+      super().remove()
 
     def max(self):
       """
@@ -28,7 +47,6 @@ class MaxQueue(SLLQueue):
 
 
 
-"""
 # TESTER
 mq = MaxQueue()
 mq.add(3)
@@ -118,4 +136,3 @@ while mq.size() > 0:
     if mq.size() > 0:
         print("Max element", mq.max(), "\n\n")
         
-"""

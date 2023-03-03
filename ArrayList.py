@@ -191,24 +191,24 @@ class ArrayList(List):
  
 # # a = np.zeros(3, object)
  
-array = ArrayList()
-array.a = array.new_array(8)
-array.j = 1
-array.add(0, "A")
-array.add(1, "B")
-array.add(2, "C")
-array.add(3, "D")
-array.add(4, "E")
-array.add(5, "F")
+# array = ArrayList()
+# array.a = array.new_array(8)
+# array.j = 1
+# array.add(0, "A")
+# array.add(1, "B")
+# array.add(2, "C")
+# array.add(3, "D")
+# array.add(4, "E")
+# array.add(5, "F")
 
-# i = 6
-array.add(6, "G")
-array.add(5, "f")
-array.add(2, "c")
-print(array.remove(6))
-print(array.j % len(array.a))
-print("array", array.a)
-print(array.get(6))
+# # i = 6
+# array.add(6, "G")
+# array.add(5, "f")
+# array.add(2, "c")
+# print(array.remove(6))
+# print(array.j % len(array.a))
+# print("array", array.a)
+# print(array.get(6))
 # print("array", array.a)
 # array.remove(4)
 # print("array", array.a)
