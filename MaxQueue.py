@@ -14,11 +14,9 @@ class MaxQueue(SLLQueue):
       INPUT: x the element to add
       """
       super().add(x)
-      
       front = self.max_deque.dummy.next
       if self.max_deque.n == 0:
         self.max_deque.add_first(x)
-        print("I AM RAN")
       elif front.x < x:
         self.max_deque.removeAll()
         self.max_deque.add_first(x)
@@ -26,7 +24,6 @@ class MaxQueue(SLLQueue):
         for i in range(self.max_deque.n -1, 0, -1):
           prevValue =self.max_deque.get(self.max_deque.n - 1) 
           if x > prevValue:
-            print(x, ">", prevValue)
             self.max_deque.remove_last()
         self.max_deque.add_last(x)
       # self.queue.add(x)
@@ -38,10 +35,8 @@ class MaxQueue(SLLQueue):
       removes and returns the element at the head of the max queue
       """
       removedValue = super().remove()
-      print("remove value", removedValue)
       for i in range (self.max_deque.n):
         if removedValue == self.max_deque.get(i):
-          print(i, self.max_deque.get(i))
           self.max_deque.remove(i)
       return removedValue
 
@@ -56,6 +51,10 @@ class MaxQueue(SLLQueue):
 
 # # TESTER
 # mq = MaxQueue()
+# mq.add(3)
+# mq.add(3)
+# mq.add(3)
+# mq.add(3)
 # mq.add(3)
 # print("Added:", 3)
 # print("MaxQueue contents:", mq)

@@ -71,11 +71,15 @@ class DLList(List):
         front = self.dummy.next
         back = self.dummy.prev
         
-        for k in range(int(self.n / 2 )):
-            swap_holder = front.x
-            front.x = back.x
-            back.x = swap_holder
+        for _ in range(int(self.n / 2 )):
+            # hold the head value temporary
+            temp_holder = front.x
             
+            # swap
+            front.x = back.x
+            back.x = temp_holder
+            
+            # move to next
             front = front.next
             back = back.prev
 
@@ -113,7 +117,6 @@ class DLList(List):
         if self.size == 0:
             return False
         for k in range( int(self.n / 2)):
-            print(k)
             if  front.x != back.x:
                 
                 return False
@@ -146,19 +149,24 @@ class DLList(List):
         return x
 
 
-list = DLList()
-# list.add(0, 'a')
-# list.add(0, 'a')
-# list.add(0, 'a')
-# list.add(0, 'b')
-# list.add(1, 'a')
+# list = DLList()
+# list.add(0, 'C')
+# list.add(0, 'E')
+# list.add(0, 'G')
+# list.add(0, 'A')
+# list.add(0, 'F')
+# list.add(0, 'B')
+# list.add(0, 'D')
+# # list.add(0, 'b')
+# # list.add(1, 'a')
+# (list.remove(0))
+# (list.remove(5))
+# (list.append("X"))
+# (list.set(3, "B"))
+# list.add(2, "A")
+# print(list)
 # print(list.isPalindrome())
-list.add(0, 4)
-list.add(0, 1)
-list.add(1, 3)
-list.add(1, 2)
-list.add(4, 5)
 # list.reverse()
 # # list.remove(4)
 # list.remove(4)
-list.removeAll()
+# list.removeAll()
